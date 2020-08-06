@@ -1,6 +1,7 @@
 package com.github.birdsnail.mock;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.birdsnail.pojo.HBJJZInfo;
 
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author BirdSnail
@@ -28,6 +30,7 @@ public class SendMessage extends Thread {
 			printWriter = new PrintWriter(socket.getOutputStream());
 			int i = 0;
 			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 			while (true) {
 				String line = objectMapper.writeValueAsString(create(i++));
 				System.out.println(line);
@@ -54,7 +57,7 @@ public class SendMessage extends Thread {
 				.blDate(LocalDate.now())
 				.city("wuhan")
 				.num(num)
-				.validDate(LocalDate.now())
+				.validDateTime(LocalDateTime.now())
 				.build();
 	}
 }

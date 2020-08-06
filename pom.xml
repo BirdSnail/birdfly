@@ -63,8 +63,13 @@ under the License.
 
         <!--jackson 解析json-->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-parameter-names</artifactId>
+            <version>2.9.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.9.6</version>
         </dependency>
 
@@ -94,6 +99,8 @@ under the License.
             <version>1.2.17</version>
             <scope>runtime</scope>
         </dependency>
+
+
     </dependencies>
 
     <build>

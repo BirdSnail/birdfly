@@ -23,9 +23,11 @@ import java.time.LocalDateTime;
  */
 @Data
 @Builder
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 public class HBJJZInfo {
+    private Integer id;
+
     private String name;
 
     private String city;

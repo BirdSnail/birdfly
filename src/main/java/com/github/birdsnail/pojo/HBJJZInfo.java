@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @Builder
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class HBJJZInfo {
     private Integer id;
@@ -41,4 +41,6 @@ public class HBJJZInfo {
     private LocalDateTime validDateTime;
 
     private Integer num;
+
+    private String srcSystem;
 }

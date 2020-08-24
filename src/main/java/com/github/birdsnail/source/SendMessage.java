@@ -1,8 +1,9 @@
-package com.github.birdsnail.mock;
+package com.github.birdsnail.source;
+
+import com.github.birdsnail.pojo.HBJJZInfo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.github.birdsnail.pojo.HBJJZInfo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +11,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 /**
  * @author BirdSnail
@@ -18,6 +20,9 @@ import java.time.LocalDateTime;
 public class SendMessage extends Thread {
 
 	public static final int port = 9986;
+
+	private static final String[] names = {"张三", "李四", "王五"};
+	private static final Random random = new Random();
 
 
 	@Override
@@ -39,7 +44,6 @@ public class SendMessage extends Thread {
 				Thread.sleep(2000L);
 			}
 		} catch (IOException | InterruptedException ex) {
-			printWriter.flush();
 			printWriter.close();
 			ex.printStackTrace();
 		}
@@ -52,12 +56,15 @@ public class SendMessage extends Thread {
 	}
 
 	private HBJJZInfo create(int num) {
+		int index = random.nextInt(names.length);
 		return HBJJZInfo.builder()
-				.name("nihao")
+				.id(num)
+				.name(names[index])
 				.blDate(LocalDate.now())
 				.city("wuhan")
 				.num(num)
 				.validDateTime(LocalDateTime.now())
 				.build();
 	}
+
 }

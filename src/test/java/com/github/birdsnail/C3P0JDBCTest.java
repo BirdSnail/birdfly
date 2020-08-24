@@ -17,12 +17,17 @@ import static com.github.birdsnail.DataFlyWithFlink.INSERT_OR_UPDATE;
  */
 public class C3P0JDBCTest {
 
+	public static final String ORACLE_DRIVER = "oracle.jdbc.driver.OracleDriver";
+	public static final String ORACLE_URL = "jdbc:oracle:thin:@192.168.152.11:1521:orcl";
+
 	public static void main(String[] args) throws PropertyVetoException, SQLException {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
-		ds.setDriverClass("com.mysql.cj.jdbc.Driver");
-		ds.setJdbcUrl("jdbc:mysql://192.168.152.24:3306/flink_kafka");
-		ds.setUser("root");
-		ds.setPassword("root");
+//		ds.setDriverClass("com.mysql.cj.jdbc.Driver");
+		ds.setDriverClass(ORACLE_DRIVER);
+//		ds.setJdbcUrl("jdbc:mysql://192.168.152.58:3306/flink_kafka");
+		ds.setJdbcUrl(ORACLE_URL);
+		ds.setUser("sbb");
+		ds.setPassword("sbb2018");
 		ds.setMaxPoolSize(5);
 		ds.setMinPoolSize(1);
 		ds.setInitialPoolSize(1);

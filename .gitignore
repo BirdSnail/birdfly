@@ -31,3 +31,4 @@ hs_err_pid*
 
 # Project exclude paths
 /target/
+/dependency-reduced-pom.xml
